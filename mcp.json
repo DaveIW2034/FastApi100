@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {
+        "ROOT": "/home/zcj/Magic/Wlb/FastApi100",
+        "READ_ONLY": "false"
+      }
+    },
+    "openapi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-openapi",
+        "--url",
+        "http://127.0.0.1:8000/openapi.json"
+      ]
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"],
+      "env": {
+        "REPOSITORY_ROOT": "/home/zcj/Magic/Wlb/FastApi100"
+      }
+    },
+    "sql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sql",
+        "--connection-string",
+        "mysql+aiomysql://root:root@localhost:3306/testdb"
+      ]
+    }
+  }
+}
+
+
