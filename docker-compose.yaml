@@ -44,6 +44,8 @@ services:
     container_name: fastapi100-app
     profiles: ["app"]
     working_dir: /workspace
+    ports:
+      - "8000:8000"
     volumes:
       - ./:/workspace
     environment:
