@@ -48,43 +48,8 @@
 - `app/main.py` 当前确实创建并导出了 `FastAPI` 应用，不要把它当成“仅脚本入口”。
 - 当前注册的路由前缀是 `/api/v1/user`。
 - 当前应用接入了 `TraceIDMiddleware`，请求和响应会处理 `X-Trace-Id`。
-- 数据库连接来自环境变量 `DATABASE_URL`；默认值是本地 MySQL：
-  `mysql+aiomysql://root:root@localhost:3306/testdb`
-- `docker-compose.yaml` 当前主要提供 MySQL 和 Redis，本地 API 运行依赖它们。
 
-## 常用命令
-
-安装依赖：
-
-```bash
-pip install -r requirements.txt
-```
-
-启动依赖服务：
-
-```bash
-docker compose up -d mysql redis
-```
-
-启动 API：
-
-```bash
-python -m app.main
-```
-
-运行测试：
-
-```bash
-pytest
-```
-
-按文件运行测试：
-
-```bash
-pytest test/test_trace_middleware.py
-pytest test/test_celery.py
-pytest test/test_connection_pool.py
-```
+项目安装、依赖服务启动、应用启动和测试运行方式统一维护在 `README.md`，不要在本文件重复维护一套运行说明。
 
 ## 测试与验证约定
 
