@@ -51,6 +51,51 @@
 
 项目安装、依赖服务启动、应用启动和测试运行方式统一维护在 `README.md`，不要在本文件重复维护一套运行说明。
 
+
+## FastAPI规则
+
+- 必须 async
+- router 禁止操作 DB
+- 所有 response 使用 schema
+
+## 编码规则
+- 禁止 print
+- 必须 logger
+- 必须 type hints
+- 必须 async
+- SQL 不允许字符串拼接
+
+
+## 分层规则
+
+- router 不允许操作数据库
+- 所有 DB 必须走 service
+- service 不允许依赖 router
+
+## 错误处理
+
+- 所有异常必须捕获
+- API 必须返回统一结构
+- 禁止裸 except
+
+## Redis规则
+
+- key 必须带前缀
+- 必须设置 TTL
+- 禁止大 key
+
+## Redis Review规则
+
+发现以下情况时必须警告：
+
+- 没有 TTL
+- 使用 KEYS *
+- value 过大
+- 没有 prefix
+- 阻塞操作
+- 热 key 风险
+
+
 ## 测试与验证约定
 
 - 改动 API、schema、数据库访问逻辑时，优先补充或更新对应测试。
